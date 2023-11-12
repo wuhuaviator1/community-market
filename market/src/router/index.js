@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import UserProfile from "../views/UserProfile.vue";
 import Goods from "../views/Goods.vue";
 
 // 这里定义你的路由
@@ -9,12 +10,17 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  // 其他路由...
+  {
+    path: "/user-profile",
+    name: "UserProfile",
+    component: UserProfile, // 添加用户资料页面路由
+  },
   {
     path: "/goods",
     name: "Goods",
     component: Goods,
   },
+  // 其他路由...
 ];
 
 // 创建路由实例
