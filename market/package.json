@@ -1,5 +1,5 @@
 {
-  "name": "untitled",
+  "name": "community_market",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^4.6.2",
     "jquery": "^3.7.1",
     "popper.js": "^1.16.1",
     "vue": "^3.3.4",
