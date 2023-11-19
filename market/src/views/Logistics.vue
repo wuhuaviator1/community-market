@@ -16,7 +16,7 @@
   <style scoped>
   /* 这里可以添加 CSS 样式 */
   h1 {
-    color: blue;
+    color: rgb(166, 0, 255);
   }
   p {
     font-size: 18px;
