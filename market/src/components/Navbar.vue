@@ -7,7 +7,11 @@
         <li><router-link to="/about">About</router-link></li>
         <!-- 只有在用户登录后才显示用户头像 -->
         <li v-if="$root.$user && $root.$user.value">
-          <img :src="$root.$user.value.photoURL || require() " alt="User Avatar" class="user-avatar">
+          <img
+            :src="$root.$user.value.photoURL || require()"
+            alt="User Avatar"
+            class="user-avatar"
+          />
         </li>
         <li v-else>
           <a href="#" @click.prevent="loginWithGoogle">Login</a>
@@ -19,11 +23,11 @@
 </template>
 
 <script>
-import { auth, GoogleAuthProvider } from '../firebase'; // 调整路径以匹配你的文件结构
-import { signInWithPopup } from 'firebase/auth';
+import { auth, GoogleAuthProvider } from "../firebase"; // 调整路径以匹配你的文件结构
+import { signInWithPopup } from "firebase/auth";
 
 export default {
-  name: 'Navbar',
+  name: "Navbar",
   methods: {
     loginWithGoogle() {
       const provider = new GoogleAuthProvider();
@@ -32,11 +36,11 @@ export default {
           this.$root.$user.value = result.user; // 更新用户信息
         })
         .catch((error) => {
-          console.error('Login failed:', error);
+          console.error("Login failed:", error);
         });
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -53,7 +57,7 @@ export default {
 .navbar ul {
   list-style: none;
   display: flex;
-  margin:0;
+  margin: 0;
   /* float: right; */
 }
 
