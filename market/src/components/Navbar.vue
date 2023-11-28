@@ -4,7 +4,8 @@
     <div>
       <ul>
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
+        <li><router-link to="/user-profile">Profile</router-link></li>
+        <li><router-link to="/goods">Goods</router-link></li>
         <!-- 只有在用户登录后才显示用户头像 -->
         <li v-if="$root.$user && $root.$user.value">
           <img :src="$root.$user.value.photoURL || require() " alt="User Avatar" class="user-avatar">
@@ -19,7 +20,7 @@
 </template>
 
 <script>
-import { auth, GoogleAuthProvider } from '../firebase'; // 调整路径以匹配你的文件结构
+import { auth, GoogleAuthProvider } from '../firebase';
 import { signInWithPopup } from 'firebase/auth';
 
 export default {

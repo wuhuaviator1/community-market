@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import UserProfile from "../views/UserProfile.vue";
 import Goods from "../views/Goods.vue";
+import productDetails from "../views/productDetails.vue"
 
 // 这里定义你的路由
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
     path: "/goods",
     name: "Goods",
     component: Goods,
+  },
+  {
+    path: "/productDetails/:productId",
+    name: "productDetails",
+    component: productDetails,
   },
   // 其他路由...
 ];

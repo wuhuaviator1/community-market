@@ -1,93 +1,141 @@
-<!-- <template>
-  <div class="product-display">
-    <h1>{{ product.name }}</h1>
-    <p>{{ product.description }}</p>
-    <p class="price">Price: {{ product.price }}</p>
-    <button @click="addToCart">Add to shopping cart</button>
-  </div>
-</template>
-
-<script>
-export default {
-  name: "ProductDisplay",
-  data() {
-    return {
-      product: {
-        id: "1",
-        name: "Used bike",
-        description: "This is a well maintained used bike.",
-        price: "$50.00",
-      },
-    };
-  },
-  methods: {
-    addToCart() {
-      alert("Add to cart");
-    },
-  },
-};
-</script>
-
-<style scoped>
-.product-display {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.price {
-  color: green;
-  font-weight: bold;
-}
-</style> -->
-
 <template>
-  <div class="marketplace">
-    <div class="search-results">
-      <div v-for="item in items" :key="item.id" class="product-card">
-        <img :src="item.image" :alt="item.title" class="product-image" />
-        <div class="product-details">
-          <h2>{{ item.title }}</h2>
-          <p>{{ item.description }}</p>
-          <div class="product-price">{{ item.price }}</div>
-          <div class="product-location">{{ item.location }}</div>
-          <div class="product-rating">
-            <span v-for="star in 5" :key="star" class="star">
-              <svg
-                v-if="star <= item.rating"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for filled star -->
-              </svg>
-              <svg
-                v-else
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for empty star -->
-              </svg>
-            </span>
+  <Navbar />
+    <div class="marketplace">
+      <!-- item 1 -->
+      <!-- <div class="search-results"> -->
+        <div v-for="item in items" :key="item.id" class="product-card">
+          <router-link :to="'/productDetails/' + item.id">
+            <img :src="item.image" :alt="item.title" class="product-image" />
+            <h2>{{ item.title }}</h2>
+          </router-link>
+          <button @click="openChat">Chat with Seller</button>
+          <chat-window v-if="showChat" :sellerId="sellerId"></chat-window>
+          <div class="product-details">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            <div class="product-price">{{ item.price }}</div>
+            <div class="product-location">{{ item.location }}</div>
+            <div class="product-rating">
+              <span v-for="star in 5" :key="star" class="star">
+                <svg
+                  v-if="star <= item.rating"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <!-- SVG for filled star -->
+                </svg>
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <!-- SVG for empty star -->
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+
+        <!-- item 2 -->
+        <div v-for="item in items" :key="item.id" class="product-card">
+          <router-link :to="'/productDetails/' + item.id">
+            <img :src="item.image" :alt="item.title" class="product-image" />
+            <h2>{{ item.title }}</h2>
+          </router-link>
+          <button @click="startChat(item.sellerId)">Chat with Seller</button>
+          <div class="product-details">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            <div class="product-price">{{ item.price }}</div>
+            <div class="product-location">{{ item.location }}</div>
+            <div class="product-rating">
+              <span v-for="star in 5" :key="star" class="star">
+                <svg
+                  v-if="star <= item.rating"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <!-- SVG for filled star -->
+                </svg>
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <!-- SVG for empty star -->
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- item 3 -->
+        <div v-for="item in items" :key="item.id" class="product-card">
+          <router-link :to="'/productDetails/' + item.id">
+            <img :src="item.image" :alt="item.title" class="product-image" />
+            <h2>{{ item.title }}</h2>
+          </router-link>
+          <button @click="startChat(item.sellerId)">Chat with Seller</button>
+          <div class="product-details">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            <div class="product-price">{{ item.price }}</div>
+            <div class="product-location">{{ item.location }}</div>
+            <div class="product-rating">
+              <span v-for="star in 5" :key="star" class="star">
+                <svg
+                  v-if="star <= item.rating"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <!-- SVG for filled star -->
+                </svg>
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <!-- SVG for empty star -->
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
     </div>
-  </div>
+  <Footer />
 </template>
 
 <script setup>
-import { ref } from "vue";
+  import { ref } from "vue";
+  import Navbar from '@/components/Navbar.vue';
+  import Footer from '@/components/Footer.vue';
+  import ChatWindow from '@/components/ChatWindow.vue';
 
-const items = ref([
-  {
-    id: 1,
-    title: "Lamborghini EV Car for Kids",
-    description: "Remote Control, Black",
-    price: "$15 / month",
-    location: "San Bruno, CA",
-    rating: 5,
-    image: "path-to-lamborghini-image.jpg",
-  },
-]);
+  const showChat = ref(false);
+  const sellerId = ref(''); // 卖家的用户ID
+
+  const items = ref([
+    {
+      id : "1",
+      title: "Lamborghini EV Car for Kids",
+      description: "Remote Control, Black",
+      price: "$15 / month",
+      location: "San Bruno, CA",
+      rating: 5,
+      image: "/Lamborghini EV Car for Kids.webp",
+      sellerId: "seller-user-id-1"
+    },
+  ]);
+
+  const openChat = () => {
+    showChat.value = true;
+  };
+
+  const startChat = (sellerIdValue) => {
+  sellerId.value = sellerIdValue; // 设置卖家的用户ID
+  showChat.value = true; // 显示聊天窗口
+};
 </script>
 
 <style scoped>
