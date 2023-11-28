@@ -3,7 +3,7 @@
     <!-- Top Navigation Bar -->
     <header class="top-nav">
       <!-- Navigation content (can be replaced or expanded) -->
-      <h1>聊天室</h1>
+      <h1>Chatting Room</h1>
     </header>
 
     <!-- Main Content Section -->
@@ -19,15 +19,15 @@
 
       <!-- Message Input -->
       <div class="message-input">
-        <input v-model="newMessage" type="text" placeholder="输入消息...">
-        <button @click="sendMessage">发送</button>
+        <input v-model="newMessage" type="text" placeholder="More messages...">
+        <button @click="sendMessage">send</button>
       </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
       <!-- Footer content -->
-      <p>版权所有 &copy; 2023</p>
+      <p>Copyright &copy; 2023</p>
     </footer>
   </div>
 </template>
@@ -39,9 +39,9 @@ export default {
     return {
       newMessage: '',
       messages: [
-        { id: 1, sender: '买家', text: '您好！我对这个商品感兴趣。' },
-        { id: 2, sender: '卖家', text: '您好！有什么可以帮助您的吗？' },
-        // 更多消息...
+        { id: 1, sender: 'Customer', text: 'Hi! I am interested in this item.' },
+        { id: 2, sender: 'Seller', text: 'Hello! How can I help you?' },
+        // More messages...
       ],
     };
   },
