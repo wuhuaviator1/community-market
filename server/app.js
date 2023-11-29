@@ -13,7 +13,7 @@ const usersRouter = require("./routes/users");
 const ApiRouter = require("./routes/ApiRoutes");
 const app = express();
 
-//cors
+//cors!!!
 const cors = require("cors");
 app.use(cors());
 
