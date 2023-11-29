@@ -1,17 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-const userController = require('../controller/userController');
+const userController = require('../controller/UserController');
 const goodsController = require('../controller/goodsController');
 const listingController = require('../controller/listingController');
 const cartController = require('../controller/cartController');
-
+const userUidController = require('../controller/UserUidController');
 // 用户路由
 router.post('/users', userController.createUser);
 router.get('/users', userController.getAllUsers);
 router.get('/users/:id', userController.getUser);
 router.put('/users/:id', userController.updateUser);
 router.delete('/users/:id', userController.deleteUser);
+
+// 用户UID
+router.get('/user/:uid', userUidController.getUserByUid);
+router.delete('/users/:id', userUidController.deleteUid);
 
 // 商品路由
 router.post('/goods', goodsController.createGoods);

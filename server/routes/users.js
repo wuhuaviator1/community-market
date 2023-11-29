@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../model/UserModel');
+
 
 // routes/users.js
 const connectMongoDB = require('../db');
@@ -14,5 +16,7 @@ router.get('/', async function(req, res, next) {
     res.status(500).send("无法获取数据");
   }
 });
+
+
 
 module.exports = router;
