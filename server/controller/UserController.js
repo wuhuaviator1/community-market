@@ -14,7 +14,7 @@ exports.createUser = async (req, res) => {
 // 获取所有用户
 exports.getAllUsers = async (req, res) => {
     try {
-        const users = await User.find().populate('cart.items').populate('listings');
+        const users = await User.find()
         res.send(users);
     } catch (error) {
         console.error("Error getting users:", error);

@@ -7,6 +7,7 @@ const listingController = require('../controller/listingController');
 const cartController = require('../controller/cartController');
 
 // 用户路由
+// /api/users
 router.post('/users', userController.createUser);
 router.get('/users', userController.getAllUsers);
 router.get('/users/:id', userController.getUser);
