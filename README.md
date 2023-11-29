@@ -4,7 +4,7 @@ This is a readme, we have imported the vue and express in the project
 Running the project. Run "npm i" in folder market and server
 run market: npm run dev
 run server: $env:DEBUG='myapp:*'; npm start
-open by http://localhost:3000/
+open by http://localhost:3001/
 for any possible issue, try to remove node_modules, and run "npm i"
 
 Documentation:
@@ -22,7 +22,7 @@ Functionality: Stores icon components, which are used across different component
 /router:
 Functionality: Manages Vue routing configurations, defining paths to different views/pages like Home, Product Listings, User Profiles, Shopping Cart, etc.
 /views:
-Functionality: Contains Vue page components like the Homepage, Product Listing Page, User Profile Page, Shopping Cart Page, etc.
+Functionality: Contains Vue page components like the Homepage, Product ListingModel Page, User Profile Page, Shopping Cart Page, etc.
 Back-end Directory (/server)
 /bin:
 Functionality: Contains scripts to start and manage the server, often including development and production environment configurations.
