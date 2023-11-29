@@ -33,33 +33,52 @@
 </template>
 
 <script>
+import { auth, database } from '../firebase'; // 导入 auth 和 database 实例
+import { ref, onChildAdded, push, serverTimestamp } from 'firebase/database';
+
 export default {
   name: 'ChatPage',
   data() {
     return {
       newMessage: '',
-      messages: [
-        { id: 1, sender: 'Customer', text: 'Hi! I am interested in this item.' },
-        { id: 2, sender: 'Seller', text: 'Hello! How can I help you?' },
-        // More messages...
-      ],
+      messages: [],
     };
   },
+  mounted() {
+    const messagesRef = ref(database, 'messages');
+    onChildAdded(messagesRef, (snapshot) => {
+      const message = snapshot.val();
+      this.messages.push(message);
+    });
+  },
   methods: {
+    getCurrentUserId() {
+      // 获取当前登录用户的 ID
+      return auth.currentUser ? auth.currentUser.uid : null;
+    },
     sendMessage() {
-      if (this.newMessage) {
-        // 添加新消息到 messages 数组
-        this.messages.push({
-          id: this.messages.length + 1,
-          sender: '用户', // 修改为当前用户的身份
-          text: this.newMessage,
-        });
-        this.newMessage = ''; // 清空输入框
+      if (this.newMessage.trim() !== '') {
+        const userId = this.getCurrentUserId(); // 获取当前用户 ID
+        if (userId) {
+          const messageRef = ref(database, 'messages');
+          push(messageRef, {
+            sender: userId, // 使用当前用户的 ID 作为 sender
+            text: this.newMessage,
+            timestamp: serverTimestamp() // 使用 Firebase 服务器时间戳
+          });
+          this.newMessage = '';
+        } else {
+          console.error('用户未登录，无法发送消息');
+          // 处理用户未登录的情况
+        }
       }
     },
   },
 };
 </script>
+
+
+
 
 <style scoped>
 .chat-page {
