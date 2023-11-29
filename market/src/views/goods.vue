@@ -11,7 +11,7 @@
           <button @click="openChat">Chat with Seller</button>
           <chat-window v-if="showChat" :sellerId="sellerId"></chat-window>
           <div class="product-details">
-            <h2>{{ item.title }}</h2>
+            <!-- <h2>{{ item.title }}</h2> -->
             <p>{{ item.description }}</p>
             <div class="product-price">{{ item.price }}</div>
             <div class="product-location">{{ item.location }}</div>
@@ -44,7 +44,7 @@
           </router-link>
           <button @click="startChat(item.sellerId)">Chat with Seller</button>
           <div class="product-details">
-            <h2>{{ item.title }}</h2>
+            <!-- <h2>{{ item.title }}</h2> -->
             <p>{{ item.description }}</p>
             <div class="product-price">{{ item.price }}</div>
             <div class="product-location">{{ item.location }}</div>
@@ -77,7 +77,7 @@
           </router-link>
           <button @click="startChat(item.sellerId)">Chat with Seller</button>
           <div class="product-details">
-            <h2>{{ item.title }}</h2>
+            <!-- <h2>{{ item.title }}</h2> -->
             <p>{{ item.description }}</p>
             <div class="product-price">{{ item.price }}</div>
             <div class="product-location">{{ item.location }}</div>
