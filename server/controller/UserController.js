@@ -1,6 +1,21 @@
 const User = require("../model/UserModel");
 
-// 创建用户
+exports.login = async (req, res) => {
+  try {
+    const firebaseUid = req.body.uid;
+    let user = await User.findOne({ uid: req.params.uid });
+    if (!user) {
+      user = new User({ uid: req.params.uid });
+      await user.save();
+      res.status(201).send(user); // 新用户创建
+    } else {
+      res.status(200).send(user); // 已存在的用户
+    }
+  } catch (error) {
+    res.status(500).send(error); // 服务器错误
+  }
+};
+
 exports.createUser = async (req, res) => {
   try {
     const newUser = new User(req.body);
@@ -10,7 +25,17 @@ exports.createUser = async (req, res) => {
     res.status(400).send(error);
   }
 };
-
+exports.findUserByUId = async (req, res) => {
+  try {
+    const user = await User.findOne({ uid: req.params.uid });
+    if (!user) {
+      return res.status(404).send();
+    }
+    res.send(user);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
 // 获取所有用户
 exports.getAllUsers = async (req, res) => {
   try {
@@ -37,16 +62,22 @@ exports.getUser = async (req, res) => {
   }
 };
 
-// 更新用户
-exports.updateUser = async (req, res) => {
+// 更新用户信息
+exports.updateUserProfile = async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+    const uid = req.params.uid;
+    const userProfileUpdates = req.body.userProfile;
+
+    const user = await User.findOneAndUpdate(
+      { uid: uid },
+      { $set: { userProfile: userProfileUpdates } },
+      { new: true, runValidators: true }
+    );
+
     if (!user) {
-      return res.status(404).send();
+      return res.status(404).send("User not found");
     }
+
     res.send(user);
   } catch (error) {
     res.status(400).send(error);
