@@ -2,7 +2,6 @@ const User = require("../model/UserModel");
 
 exports.login = async (req, res) => {
   try {
-    const firebaseUid = req.body.uid;
     let user = await User.findOne({ uid: req.params.uid });
     if (!user) {
       user = new User({ uid: req.params.uid });

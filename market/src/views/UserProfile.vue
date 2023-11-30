@@ -55,8 +55,8 @@
                             <div class="form-group">
                                 
                                 <div class="col-xs-6">
-                                    <label for="email"><h4>Address</h4></label>
-                                    <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                                    <label for="location"><h4>Address</h4></label>
+                                    <input type="text" class="form-control" id="location" placeholder="somewhere" title="enter a location">
                                 </div>
                             </div>
                             <div class="form-group">
