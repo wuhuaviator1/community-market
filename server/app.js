@@ -11,8 +11,6 @@ const connectMongoDB = require("./db"); // 导入db.js中的函数
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const ApiRouter = require("./routes/ApiRoutes");
-// 添加新的路由处理 UID
-const userUidRouter = require("./routes/userUid");
 
 const app = express();
 
@@ -29,7 +27,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/api", ApiRouter);
-app.use("/api/users/uid", userUidRouter);
 
 const port = process.env.PORT || 3001;
 async function startServer() {
