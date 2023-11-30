@@ -7,8 +7,8 @@ const goodsSchema = new mongoose.Schema({
     image: String,
     category: String,
     count: Number,
-    rating: Number,
-    reviews: Number,
+    // rating: Number,
+    // reviews: Number,
     seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     date: { type: Date, default: Date.now },
 

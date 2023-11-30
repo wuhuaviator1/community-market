@@ -11,9 +11,9 @@ const cartController = require('../controller/cartController');
 router.post('/users', userController.createUser);
 router.get('/users', userController.getAllUsers);
 router.get('/users/:id', userController.getUser);
-router.put('/users/:id', userController.updateUser);
+router.put('/users/profile/:uid', userController.updateUserProfile);
 router.delete('/users/:id', userController.deleteUser);
-
+router.post('/login/:uid', userController.login);
 // 商品路由
 router.post('/goods', goodsController.createGoods);
 router.get('/goods', goodsController.getAllGoods);
@@ -31,7 +31,5 @@ router.delete('/listings/:id', listingController.deleteListing);
 // 购物车路由
 router.post('/carts', cartController.createCart);
 router.get('/carts', cartController.getCart);
-router.put('/carts', cartController.updateCart);
-router.delete('/carts', cartController.deleteCart);
 
 module.exports = router;
