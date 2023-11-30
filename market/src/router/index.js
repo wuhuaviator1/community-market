@@ -2,9 +2,11 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import UserProfile from "../views/UserProfile.vue";
 import Goods from "../views/Goods.vue";
-import productDetails from "../views/productDetails.vue"
+import productDetails from "../views/productDetails.vue";
+import Sellitem from "../views/Sellitem.vue";
 import Logistics from "../views/Logistics.vue"; // 引入 Logistics 视图
 import Cart from "../views/Cart.vue"; // 引入 Cart 视图
+
 
 // 这里定义你的路由
 const routes = [
@@ -24,6 +26,11 @@ const routes = [
     component: Goods,
   },
   {
+    path: "/sell-items",
+    name: "Sell",
+    component: Sellitem,
+  },
+  {
     path: "/productDetails/:productId",
     name: "productDetails",
     component: productDetails,
@@ -38,6 +45,7 @@ const routes = [
     name: "Cart",
     component: Cart, // 购物车视图的组件
   },
+
   // 其他路由...
 ];
 
