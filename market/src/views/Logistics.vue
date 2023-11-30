@@ -1,25 +1,25 @@
 <template>
-    <div>
-      <h1>Logistics Page</h1>
-      <p>Welcome to the logistics page of our website!</p>
-      <!-- 这里可以添加更多的 HTML 和 Vue.js 组件 -->
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'Logistics',
-    // 这里可以添加 JavaScript 逻辑
-  };
-  </script>
-  
-  <style scoped>
-  /* 这里可以添加 CSS 样式 */
-  h1 {
-    color: blue;
-  }
-  p {
-    font-size: 18px;
-  }
-  </style>
-  
+  <div>
+    <ul v-if="data.length">
+      <li v-for="item in data" :key="item._id">{{ item.name }}</li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      data: [],
+    };
+  },
+  async mounted() {
+    const response = await fetch("http://localhost:3001/api/users");
+    if (response.ok) {
+      this.data = await response.json();
+      // console.log(this.data);
+      // console.log(1);
+    }
+  },
+};
+</script>
