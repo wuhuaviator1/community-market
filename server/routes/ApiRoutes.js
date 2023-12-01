@@ -13,5 +13,7 @@ router.put("/users/profile/:uid", userController.updateUserProfile);
 router.delete("/users/:id", userController.deleteUser);
 router.post("/login/:uid", userController.login);
 // 商品路由
+router.get('/getALlGoods',goodsController.getAllGoods)
+router.get('/getGoodBby/category/:category', goodsController.getGoodsByCategory);
 
 module.exports = router;

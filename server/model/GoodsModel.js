@@ -6,7 +6,6 @@ const goodsSchema = new mongoose.Schema({
     description: String,
     image: String,
     category: String,
-    seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     date: { type: Date, default: Date.now },
 });
 
