@@ -2,13 +2,19 @@
   <Navbar />
   <div class="marketplace">
     <div id="searchbox">
-      <input
+      <!-- <input
         id="subbox"
         v-model="userMessage"
         placeholder="What are you looking for?"
         @keyup="handleKeyUp"
+      /> -->
+      <input
+        id="subbox"
+        v-model="searchQuery"
+        placeholder="What are you looking for?"
+        @keyup.enter="searchItems"
       />
-      <button id="searchButton" @keyup="handleKeyUp">
+      <button id="searchButton" @keyup="handleKeyUp" @click="searchItems">
         <svg
           id="searchlogo"
           xmlns="http://www.w3.org/2000/svg"
@@ -60,8 +66,18 @@ const items = ref([
     price: "$100",
     location: "San Francisco, CA",
     rating: 4,
-    image: "../assets/cat.jpg",
+    image: "/cat.jpg",
     sellerId: "seller-user-id-2",
+  },
+  {
+    id: "3",
+    title: "desk",
+    description: "a wooden desk",
+    price: "$200",
+    location: "San Francisco, CA",
+    rating: 3,
+    image: "/desk.jpg",
+    sellerId: "seller-user-id-3",
   },
 ]);
 
@@ -80,6 +96,25 @@ const filteredItems = computed(() => {
     );
   });
 });
+
+const searchItems = async () => {
+  if (searchQuery.value.trim()) {
+    try {
+      const response = await fetch(
+        `http://localhost:3001/api/getGoodBy/name/${searchQuery.value}`
+      );
+      if (response.ok) {
+        items.value = await response.json();
+        console.log(items.value);
+      } else {
+        // 处理错误
+        console.error("无法获取商品");
+      }
+    } catch (error) {
+      console.error("请求错误", error);
+    }
+  }
+};
 </script>
 
 <style scoped>
