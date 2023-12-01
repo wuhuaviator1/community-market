@@ -172,7 +172,7 @@ export default {
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newUserInfo),
+          body: JSON.stringify({ userProfile: newUserInfo }),
         }
       );
 
