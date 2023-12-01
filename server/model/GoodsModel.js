@@ -6,13 +6,8 @@ const goodsSchema = new mongoose.Schema({
     description: String,
     image: String,
     category: String,
-    count: Number,
-    rating: Number,
-    reviews: Number,
-    seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     date: { type: Date, default: Date.now },
-
-    });
+});
 
 const Goods = mongoose.model('GoodsModel', goodsSchema, "Goods");
 

@@ -11,6 +11,7 @@ const connectMongoDB = require("./db"); // 导入db.js中的函数
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const ApiRouter = require("./routes/ApiRoutes");
+
 const app = express();
 
 //cors!!!
@@ -26,8 +27,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/api", ApiRouter);
-
-// ...省略错误处理器和404处理器的代码...
 
 const port = process.env.PORT || 3001;
 async function startServer() {

@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    name:{
+    uid:{
         type: String,
         required: true,
+        unique: true
     },
     cart: {
         items: [{
@@ -21,10 +22,7 @@ const userSchema = new mongoose.Schema({
         email: String,
         phone: String,
         address: String,
-        city: String,
-        state: String,
-        zip: String,
-        country: String,
+        img: String,
     }]
 });
 
