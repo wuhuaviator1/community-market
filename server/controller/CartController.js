@@ -1,18 +1,5 @@
 const Cart = require('../model/CartModel');
 
-// 创建购物车
-exports.createCart = async (req, res) => {
-    try {
-        const newCart = new Cart({
-            owner: req.user._id, // Assuming req.user is populated by an authentication middleware
-            items: req.body.items,
-        });
-        await newCart.save();
-        res.status(201).send(newCart);
-    } catch (error) {
-        res.status(400).send(error);
-    }
-};
 
 exports.addGoodsToCart = async (req, res) => {
     try {
@@ -33,20 +20,6 @@ exports.addGoodsToCart = async (req, res) => {
         res.status(400).send(error.message);
     }
 };
-
-// 获取用户的购物车
-exports.getCart = async (req, res) => {
-    try {
-        const cart = await Cart.findOne({ owner: req.user._id }).populate('items.goods');
-        if (!cart) {
-            return res.status(404).send();
-        }
-        res.send(cart);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-};
-
 
 // 减少商品数量
 exports.reduceItemInCart = async (req, res) => {
