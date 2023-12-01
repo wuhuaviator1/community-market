@@ -1,0 +1,297 @@
+[debug] [2023-12-01T02:52:55.038Z] ----------------------------------------------------------------------
+[debug] [2023-12-01T02:52:55.040Z] Command:       /usr/local/bin/firebase /Users/plonguo/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
+[debug] [2023-12-01T02:52:55.040Z] CLI Version:   12.8.1
+[debug] [2023-12-01T02:52:55.040Z] Platform:      darwin
+[debug] [2023-12-01T02:52:55.041Z] Node Version:  v16.16.0
+[debug] [2023-12-01T02:52:55.042Z] Time:          Thu Nov 30 2023 18:52:55 GMT-0800 (Pacific Standard Time)
+[debug] [2023-12-01T02:52:55.042Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-01T02:52:55.153Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-01T02:52:55.154Z] > authorizing via signed-in user (jason.ghzr@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting"}}
+[debug] [2023-12-01T02:52:55.636Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-01T02:52:55.637Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-01T02:52:55.638Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5033}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-12-01T02:52:55.650Z] [hub] writing locator at /var/folders/qt/dm8wx4y97s9435tnz431302r0000gn/T/hub-my-project-187-404905.json
+[debug] [2023-12-01T02:52:55.936Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-01T02:52:55.938Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-01T02:52:55.938Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5033}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage\u001b[22m"}}
+[debug] [2023-12-01T02:52:55.946Z] defaultcredentials: writing to file /Users/plonguo/.config/firebase/jason_ghzr_gmail.com_application_default_credentials.json
+[debug] [2023-12-01T02:52:55.957Z] Setting GAC to /Users/plonguo/.config/firebase/jason_ghzr_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/plonguo/.config/firebase/jason_ghzr_gmail.com_application_default_credentials.json"}}
+[debug] [2023-12-01T02:52:55.959Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/my-project-187-404905/adminSdkConfig [none]
+[debug] [2023-12-01T02:52:56.327Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/my-project-187-404905/adminSdkConfig 200
+[debug] [2023-12-01T02:52:56.330Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/my-project-187-404905/adminSdkConfig {"projectId":"my-project-187-404905","databaseURL":"https://my-project-187-404905-default-rtdb.firebaseio.com","storageBucket":"my-project-187-404905.appspot.com","locationId":"us-central"}
+[debug] [2023-12-01T02:52:56.415Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/my-project-187-404905/sites 
+[debug] [2023-12-01T02:52:56.936Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/my-project-187-404905/sites 200
+[debug] [2023-12-01T02:52:56.937Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/my-project-187-404905/sites {"sites":[{"name":"projects/my-project-187-404905/sites/my-project-187-404905","defaultUrl":"https://my-project-187-404905.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-01T02:52:56.937Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/my-project-187-404905/webApps/-/config [none]
+[debug] [2023-12-01T02:52:57.427Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/my-project-187-404905/webApps/-/config 200
+[debug] [2023-12-01T02:52:57.428Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/my-project-187-404905/webApps/-/config {"projectId":"my-project-187-404905","appId":"1:129354217522:web:bf19f53fac8bfd53cb642b","databaseURL":"https://my-project-187-404905-default-rtdb.firebaseio.com","storageBucket":"my-project-187-404905.appspot.com","locationId":"us-central","apiKey":"AIzaSyDliRm2HbjNTRBFkaMMk_eyf-RHYJKTrfw","authDomain":"my-project-187-404905.firebaseapp.com","messagingSenderId":"129354217522"}
+[debug] [2023-12-01T02:52:57.440Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/my-project-187-404905 [none]
+[debug] [2023-12-01T02:52:57.813Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/my-project-187-404905 200
+[debug] [2023-12-01T02:52:57.814Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/my-project-187-404905 {"projectId":"my-project-187-404905","projectNumber":"129354217522","displayName":"My Project 187","name":"projects/my-project-187-404905","resources":{"hostingSite":"my-project-187-404905","realtimeDatabaseInstance":"my-project-187-404905-default-rtdb","storageBucket":"my-project-187-404905.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_761610c4-e26c-4c7f-8485-9e71288b7012"}
+[info] i  hosting[my-project-187-404905]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] ✔  hosting[my-project-187-404905]: Local server: http://127.0.0.1:5033 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5033\u001b[22m\u001b[24m"}}
+[debug] [2023-12-01T02:52:57.959Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-12-01T02:52:57.959Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-12-01T02:52:57.959Z] Starting Emulator UI with command {"binary":"node","args":["/Users/plonguo/.cache/firebase/emulators/ui-v1.11.7/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/plonguo/.cache/firebase/emulators/ui-v1.11.7/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-12-01T02:52:58.118Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-12-01T02:52:58.119Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "/Users/plonguo/Git/187Project/community-market/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/plonguo/Git/187Project/community-market/functions\" for Cloud Functions..."}}
+[debug] [2023-12-01T02:52:58.281Z] Validating nodejs source
+[debug] [2023-12-01T02:52:58.975Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "http-errors": "~1.6.3",
+    "jade": "^0.29.0",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.1",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-01T02:52:58.977Z] Building nodejs source
+[debug] [2023-12-01T02:52:58.977Z] Failed to find version of module node: reached end of search path /Users/plonguo/Git/187Project/community-market/functions/node_modules
+[warn] ⚠  functions: You've requested "node" version "18", but the standalone Firebase CLI comes with bundled Node "16". 
+[info] ✔  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2023-12-01T02:52:58.980Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-01T02:52:58.992Z] Found firebase-functions binary at '/Users/plonguo/Git/187Project/community-market/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8306
+
+[error] Error: Route.get() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as get] (/Users/plonguo/Git/187Project/community-market/functions/node_modules/express/lib/router/route.js:211:15)
+    at Function.proto.<computed> [as get] (/Users/plonguo/Git/187Project/community-market/functions/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js:17:8)
+    at Module._compile (node:internal/modules/cjs/loader:1105:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1890:32)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at Module.require (pkg/prelude/bootstrap.js:1851:31)
+
+[debug] [2023-12-01T02:52:59.900Z] Got response code 400; body Failed to generate manifest from function source: Error: Route.get() requires a callback function but got a [object Undefined]
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Hosting   │ 127.0.0.1:5033 │ n/a                             │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-12-01T02:57:00.413Z] File /Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js changed, reloading triggers"}}
+[debug] [2023-12-01T02:57:01.429Z] Validating nodejs source
+[debug] [2023-12-01T02:57:02.180Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "http-errors": "~1.6.3",
+    "jade": "^0.29.0",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.1",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-01T02:57:02.180Z] Building nodejs source
+[debug] [2023-12-01T02:57:02.181Z] Failed to find version of module node: reached end of search path /Users/plonguo/Git/187Project/community-market/functions/node_modules
+[warn] ⚠  functions: You've requested "node" version "18", but the standalone Firebase CLI comes with bundled Node "16". 
+[info] ✔  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2023-12-01T02:57:02.184Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-01T02:57:02.188Z] Found firebase-functions binary at '/Users/plonguo/Git/187Project/community-market/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8451
+
+[error] Error: Route.get() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as get] (/Users/plonguo/Git/187Project/community-market/functions/node_modules/express/lib/router/route.js:211:15)
+    at Function.proto.<computed> [as get] (/Users/plonguo/Git/187Project/community-market/functions/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js:17:8)
+    at Module._compile (node:internal/modules/cjs/loader:1105:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1890:32)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at Module.require (pkg/prelude/bootstrap.js:1851:31)
+
+[debug] [2023-12-01T02:57:03.167Z] Got response code 400; body Failed to generate manifest from function source: Error: Route.get() requires a callback function but got a [object Undefined]
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2023-12-01T02:57:47.217Z] File /Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js changed, reloading triggers"}}
+[debug] [2023-12-01T02:57:48.226Z] Validating nodejs source
+[debug] [2023-12-01T02:57:49.074Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "http-errors": "~1.6.3",
+    "jade": "^0.29.0",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.1",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-01T02:57:49.074Z] Building nodejs source
+[debug] [2023-12-01T02:57:49.074Z] Failed to find version of module node: reached end of search path /Users/plonguo/Git/187Project/community-market/functions/node_modules
+[warn] ⚠  functions: You've requested "node" version "18", but the standalone Firebase CLI comes with bundled Node "16". 
+[info] ✔  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2023-12-01T02:57:49.076Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-01T02:57:49.079Z] Found firebase-functions binary at '/Users/plonguo/Git/187Project/community-market/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8081
+
+[error] Error: Route.get() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as get] (/Users/plonguo/Git/187Project/community-market/functions/node_modules/express/lib/router/route.js:211:15)
+    at Function.proto.<computed> [as get] (/Users/plonguo/Git/187Project/community-market/functions/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js:17:8)
+    at Module._compile (node:internal/modules/cjs/loader:1105:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1890:32)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at Module.require (pkg/prelude/bootstrap.js:1851:31)
+
+[debug] [2023-12-01T02:57:50.042Z] Got response code 400; body Failed to generate manifest from function source: Error: Route.get() requires a callback function but got a [object Undefined]
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2023-12-01T02:57:55.257Z] File /Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js changed, reloading triggers"}}
+[debug] [2023-12-01T02:57:56.265Z] Validating nodejs source
+[debug] [2023-12-01T02:57:56.998Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "http-errors": "~1.6.3",
+    "jade": "^0.29.0",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.1",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-01T02:57:56.998Z] Building nodejs source
+[debug] [2023-12-01T02:57:56.998Z] Failed to find version of module node: reached end of search path /Users/plonguo/Git/187Project/community-market/functions/node_modules
+[warn] ⚠  functions: You've requested "node" version "18", but the standalone Firebase CLI comes with bundled Node "16". 
+[info] ✔  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2023-12-01T02:57:57.001Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-01T02:57:57.003Z] Found firebase-functions binary at '/Users/plonguo/Git/187Project/community-market/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8651
+
+[error] Error: Route.get() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as get] (/Users/plonguo/Git/187Project/community-market/functions/node_modules/express/lib/router/route.js:211:15)
+    at Function.proto.<computed> [as get] (/Users/plonguo/Git/187Project/community-market/functions/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/Users/plonguo/Git/187Project/community-market/functions/routes/ApiRoutes.js:17:8)
+    at Module._compile (node:internal/modules/cjs/loader:1105:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1890:32)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at Module.require (pkg/prelude/bootstrap.js:1851:31)
+
+[debug] [2023-12-01T02:57:57.897Z] Got response code 400; body Failed to generate manifest from function source: Error: Route.get() requires a callback function but got a [object Undefined]
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
