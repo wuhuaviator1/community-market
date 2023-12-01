@@ -164,7 +164,7 @@ export default {
         lastName: this.$refs.lastName.value,
         phone: this.$refs.phone.value,
         email: this.$refs.email.value,
-        location: this.$refs.location.value,
+        address: this.$refs.location.value,
       };
 
       console.log(newUserInfo);

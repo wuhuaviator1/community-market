@@ -9,6 +9,9 @@
       <ul>
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/user-profile">Profile</router-link></li>
+        <li>
+          <router-link to="/user-information">User-Information</router-link>
+        </li>
         <li><router-link to="/goods">Goods</router-link></li>
         <li><router-link to="/sell-items">Sell your items</router-link></li>
         <li><router-link to="/cart"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">

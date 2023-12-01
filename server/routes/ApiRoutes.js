@@ -21,4 +21,5 @@ router.get(
 router.get("/getGoodBy/name/:name", goodsController.getGoodsByName);
 router.get("/getAllCategories", goodsController.getAllCategories);
 module.exports = router;
-
+//上传商品
+router.post("/uploadGood", goodsController.uploadGood);
