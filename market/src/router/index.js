@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../views/home.vue";
 import UserProfile from "../views/UserProfile.vue";
-import Goods from "../views/Goods.vue";
+import Goods from "../views/goods.vue";
 import productDetails from "../views/productDetails.vue";
 import Sellitem from "../views/Sellitem.vue";
 import Logistics from "../views/Logistics.vue"; // 引入 Logistics 视图
