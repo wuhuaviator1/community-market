@@ -291,12 +291,9 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-<<<<<<< HEAD
 
 #morespace{
   height: 52rem;
 }
 
-=======
->>>>>>> ef3f31a39389a757868ac9ec7e1fef1a34aacb8c
 </style>
