@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../views/home.vue";
 import UserProfile from "../views/UserProfile.vue";
-import Goods from "../views/Goods.vue";
+import Goods from "../views/goods.vue";
 import productDetails from "../views/productDetails.vue";
 import Sellitem from "../views/Sellitem.vue";
 import Logistics from "../views/Logistics.vue"; // 引入 Logistics 视图
 import Cart from "../views/Cart.vue"; // 引入 Cart 视图
 import UserInformation from "../views/UserInformation.vue";
+import CheckOut from "../views/CheckOut.vue";
 
 // 这里定义你的路由
 const routes = [
@@ -49,6 +50,11 @@ const routes = [
     path: "/user-information",
     name: "UserInformation",
     component: UserInformation,
+  },
+  {
+    path: "/checkout", // 购物车视图的路径
+    name: "CheckOut",
+    component: CheckOut, // 购物车视图的组件
   },
   // 其他路由...
 ];

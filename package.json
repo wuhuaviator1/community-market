@@ -6,6 +6,6 @@
   "devDependencies": {
     "eslint": "^8.54.0",
     "eslint-plugin-vue": "^9.19.2",
-    "firebase-tools": "^12.9.1"
+    "firebase-tools": "^0.1.6"
   }
 }

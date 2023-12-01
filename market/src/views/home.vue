@@ -23,7 +23,7 @@
         
       <p id="favorate">Our Favorate:</p>
       <section id="carousel" :class="{ loading: imgsLoaded < 5 }" :style="carouselTransform">
-        <img v-for="index in 5" :key="index" :src="`https://placekitten.com/300/300?image=${index}`" @load="onImageLoad">
+        <img v-for="(product, index) in products" :key="index" :src="product.image" @load="onImageLoad">
       </section>
     </section>
 
@@ -52,7 +52,8 @@ export default {
   data() {
     return {
       imgsLoaded: 0,
-      buttonPresses: 0
+      buttonPresses: 0,
+      products: [], // 新增数据属性
     };
   },
   methods: {
@@ -61,7 +62,22 @@ export default {
     },
     moveCarousel(direction) {
       this.buttonPresses = Math.max(0, Math.min(this.buttonPresses + direction, 3));
+    },
+    fetchProducts() {
+      for (let i = 1; i <= 7; i++) {
+        fetch(`https://fakestoreapi.com/products/${i}`)
+          .then(response => response.json())
+          .then(data => {
+            this.products.push(data);
+          })
+          .catch(error => {
+            console.error('Error fetching products:', error);
+          });
+      }
     }
+  },
+  created() {
+    this.fetchProducts();
   },
   computed: {
     carouselTransform() {
