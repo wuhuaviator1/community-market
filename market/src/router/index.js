@@ -6,7 +6,7 @@ import productDetails from "../views/productDetails.vue";
 import Sellitem from "../views/Sellitem.vue";
 import Logistics from "../views/Logistics.vue"; // 引入 Logistics 视图
 import Cart from "../views/Cart.vue"; // 引入 Cart 视图
-
+import UserInformation from "../views/UserInformation.vue";
 
 // 这里定义你的路由
 const routes = [
@@ -45,7 +45,11 @@ const routes = [
     name: "Cart",
     component: Cart, // 购物车视图的组件
   },
-
+  {
+    path: "/user-information",
+    name: "UserInformation",
+    component: UserInformation,
+  },
   // 其他路由...
 ];
 

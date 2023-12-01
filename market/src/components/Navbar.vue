@@ -9,6 +9,9 @@
       <ul>
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/user-profile">Profile</router-link></li>
+        <li>
+          <router-link to="/user-information">User-Information</router-link>
+        </li>
         <li><router-link to="/goods">Goods</router-link></li>
         <li><router-link to="/sell-items">Sell your items</router-link></li>
         <!-- 只有在用户登录后才显示用户头像 -->

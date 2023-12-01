@@ -1,66 +1,94 @@
 <template>
-    <div class="home">
-      <Navbar />
-      <header class="home-header">
-        <h1>Please Upload information of your selling items:</h1>
-      </header>
-      <section>
-        <div class="file-upload">
-            <button class="file-upload-btn" type="button" @click="triggerFileUpload">Add Image</button>
+  <div class="home">
+    <Navbar />
+    <header class="home-header">
+      <h1>Please Upload information of your selling items:</h1>
+    </header>
+    <section>
+      <div class="file-upload">
+        <button
+          class="file-upload-btn"
+          type="button"
+          @click="triggerFileUpload"
+        >
+          Add Image
+        </button>
 
-            <div class="image-upload-wrap" @dragover.prevent="addDragOverClass" @dragleave="removeDragOverClass">
-                <input class="file-upload-input" type='file' @change="readURL" accept="image/*" ref="fileInput" />
-                <div class="drag-text">
-                    <h3>Drag and drop a file or select add Image</h3>
-                </div>
-            </div>
-
-            <div class="file-upload-content" v-if="isFileUploaded">
-                <img class="file-upload-image" :src="uploadedImage" alt="your image" />
-                <div class="image-title-wrap">
-                    <button type="button" @click="removeUpload" class="remove-image">Remove <span class="image-title">{{ fileName }}</span></button>
-                </div>
-            </div>
-
-            <button class="upload-btn" @click="uploadToDatabase">Upload Image</button>
+        <div
+          class="image-upload-wrap"
+          @dragover.prevent="addDragOverClass"
+          @dragleave="removeDragOverClass"
+        >
+          <input
+            class="file-upload-input"
+            type="file"
+            @change="readURL"
+            accept="image/*"
+            ref="fileInput"
+          />
+          <div class="drag-text">
+            <h3>Drag and drop a file or select add Image</h3>
+          </div>
         </div>
 
-        <div class="file-upload">
-            <!-- Input fields for product details -->
-            <div class="product-details">
+        <div class="file-upload-content" v-if="isFileUploaded">
+          <img
+            class="file-upload-image"
+            :src="uploadedImage"
+            alt="your image"
+          />
+          <div class="image-title-wrap">
+            <button type="button" @click="removeUpload" class="remove-image">
+              Remove <span class="image-title">{{ fileName }}</span>
+            </button>
+          </div>
+        </div>
+
+        <button class="upload-btn" @click="uploadToDatabase">
+          Upload Image
+        </button>
+      </div>
+
+      <div class="file-upload">
+        <!-- Input fields for product details -->
+        <div class="product-details">
+          <form @submit.prevent="submit">
             <input v-model="productName" placeholder="Product Name" />
             <input v-model="productUsageTime" placeholder="Usage Time" />
             <input v-model="productPrice" placeholder="Price" type="number" />
-            </div>
-
-            <!-- Button to save product details -->
-            <button class="upload-btn" @click="saveProductInfo">Save Product Info</button>
+          </form>
         </div>
-      </section>
-      
-      <Footer />
-    </div>
-  </template>
-  
-  <script>
-import Navbar from '@/components/Navbar.vue';
-import Footer from '@/components/Footer.vue';
+
+        <!-- Button to save product details -->
+        <button class="upload-btn" @click="saveProductInfo">
+          Save Product Info
+        </button>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</template>
+
+<script>
+import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  name: 'SellItem',
+  name: "SellItem",
   components: {
     Navbar,
-    Footer
+    Footer,
   },
   data() {
     return {
-        isFileUploaded: false,
-        uploadedImage: '',
-        fileName: '',
-        productName:'',
-        productUsageTime: '',
-        productPrice: null,
-    }
+      isFileUploaded: false,
+      uploadedImage: "",
+      fileName: "",
+      productName: "",
+      productUsageTime: "",
+      productPrice: null,
+    };
   },
   methods: {
     readURL(event) {
@@ -79,8 +107,8 @@ export default {
     },
     removeUpload() {
       this.isFileUploaded = false;
-      this.uploadedImage = '';
-      this.fileName = '';
+      this.uploadedImage = "";
+      this.fileName = "";
     },
     triggerFileUpload() {
       this.$refs.fileInput.click();
@@ -95,28 +123,37 @@ export default {
       // Logic to upload image to database
     },
     saveProductInfo() {
-      // Logic to save product information to database
-    }
-  }
+      // Logic to save product details to database
+    },
+  },
+};
+
+async function uploadGood(good) {
+  const response = await fetch("http://localhost:3001/api/uploadGood", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(good),
+  });
+  if (!response.ok) throw new Error("Upload failed");
+  return await response.json();
 }
 </script>
 
-  <style scoped>
+<style scoped>
+.home {
+  background-color: rgb(33, 29, 29);
+}
+.home-header {
+  text-align: center;
+  padding: 50px;
+  background: rgb(33, 29, 29);
+}
 
-  .home{
-    background-color: rgb(33, 29, 29);
-  }
-  .home-header {
-    text-align: center;
-    padding: 50px;
-    background: rgb(33, 29, 29);
-  }
-  
-  .home-header h1{
-    color: white;
-  }
+.home-header h1 {
+  color: white;
+}
 
-  body {
+body {
   font-family: sans-serif;
   background-color: #eeeeee;
 }
@@ -126,34 +163,34 @@ export default {
   /* height: 60rem; */
   width: 40rem;
   margin: 0 auto;
-  padding: 20px; 
+  padding: 20px;
 }
 
 .file-upload-btn {
   width: 100%;
   margin: 0;
   color: #fff;
-  background: #1FB264;
+  background: #1fb264;
   border: none;
   padding: 10px;
   border-radius: 4px;
-  border-bottom: 4px solid #15824B;
-  transition: all .2s ease;
+  border-bottom: 4px solid #15824b;
+  transition: all 0.2s ease;
   outline: none;
   text-transform: uppercase;
   font-weight: 700;
 }
 
 .file-upload-btn:hover {
-  background: #1AA059;
+  background: #1aa059;
   color: #ffffff;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .file-upload-btn:active {
   border: 0;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .file-upload-content {
@@ -174,13 +211,13 @@ export default {
 
 .image-upload-wrap {
   margin-top: 20px;
-  border: 4px dashed #1FB264;
+  border: 4px dashed #1fb264;
   position: relative;
 }
 
 .image-dropping,
 .image-upload-wrap:hover {
-  background-color: #1FB264;
+  background-color: #1fb264;
   border: 4px dashed #ffffff;
 }
 
@@ -196,7 +233,7 @@ export default {
 .drag-text h3 {
   font-weight: 100;
   text-transform: uppercase;
-  color: #15824B;
+  color: #15824b;
   padding: 60px 0;
 }
 
@@ -216,7 +253,7 @@ export default {
   padding: 10px;
   border-radius: 4px;
   border-bottom: 4px solid #b02818;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   outline: none;
   text-transform: uppercase;
   font-weight: 700;
@@ -225,13 +262,13 @@ export default {
 .remove-image:hover {
   background: #c13b2a;
   color: #ffffff;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .remove-image:active {
   border: 0;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .file-upload-image {
@@ -254,6 +291,4 @@ export default {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
 </style>
-  
