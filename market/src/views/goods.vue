@@ -24,12 +24,11 @@
         </svg>
       </button>
     </div>
-    
+
     <!-- Items -->
     <div class="goods">
       <Item v-for="item in filteredItems" :key="item.id" :item="item" />
     </div>
-
   </div>
   <Footer />
 </template>
