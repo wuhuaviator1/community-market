@@ -213,6 +213,16 @@ const items = ref([
     image: "/Lamborghini EV Car for Kids.webp",
     sellerId: "seller-user-id-1",
   },
+  {
+    id: "2",
+    title: "cat",
+    description: "cute cat",
+    price: "$100",
+    location: "San Francisco, CA",
+    rating: 4,
+    image: "../assets/cat.jpg",
+    sellerId: "seller-user-id-2",
+  },
 ]);
 
 const searchQuery = ref(""); // 搜索框的输入

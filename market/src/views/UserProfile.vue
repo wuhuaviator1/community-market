@@ -181,8 +181,9 @@ export default {
 
       const responseData = await response.json();
       // Select only the data you care about
-      const { firstName, lastName, phone, email, location } = responseData;
-      console.log({ firstName, lastName, phone, email, location });
+      // const { firstName, lastName, phone, email, location } = responseData;
+      // console.log({ firstName, lastName, phone, email, location });
+      console.log(responseData);
 
       if (!response.ok) {
         // handle error
