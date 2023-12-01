@@ -1,14 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div class="home">
-      <Navbar />
-      <header class="home-header">
-        <h1>Please Upload information of your selling items:</h1>
-      </header>
-      <section id="morespace">
-        <div class="file-upload">
-            <button class="file-upload-btn" type="button" @click="triggerFileUpload">Add Image</button>
-=======
   <div class="home">
     <Navbar />
     <header class="home-header">
@@ -23,7 +13,6 @@
         >
           Add Image
         </button>
->>>>>>> ef3f31a39389a757868ac9ec7e1fef1a34aacb8c
 
         <div
           class="image-upload-wrap"
