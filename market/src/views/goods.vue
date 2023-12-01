@@ -24,12 +24,11 @@
         </svg>
       </button>
     </div>
-    
+
     <!-- Items -->
     <div class="goods">
       <Item v-for="item in filteredItems" :key="item.id" :item="item" />
     </div>
-
   </div>
   <Footer />
 </template>
@@ -53,6 +52,16 @@ const items = ref([
     rating: 5,
     image: "/Lamborghini EV Car for Kids.webp",
     sellerId: "seller-user-id-1",
+  },
+  {
+    id: "2",
+    title: "cat",
+    description: "cute cat",
+    price: "$100",
+    location: "San Francisco, CA",
+    rating: 4,
+    image: "../assets/cat.jpg",
+    sellerId: "seller-user-id-2",
   },
 ]);
 

@@ -31,7 +31,7 @@ exports.getUserProfileByUid = async (req, res) => {
   try {
     const uid = req.params.uid;
 
-    const user = await User.findOne({ uid: uid }, 'userProfile'); // 只查询 userProfile 字段
+    const user = await User.findOne({ uid: uid }, "userProfile"); // 只查询 userProfile 字段
 
     if (!user) {
       return res.status(404).send("User not found");
@@ -44,24 +44,24 @@ exports.getUserProfileByUid = async (req, res) => {
 };
 
 exports.updateUserProfile = async (req, res) => {
-    try {
-        const uid = req.params.uid;
-        const userProfileUpdates = req.body.userProfile;
+  try {
+    const uid = req.params.uid;
+    const userProfileUpdates = req.body.userProfile;
 
-        const user = await User.findOneAndUpdate(
-          { uid: uid },
-          { $set: { userProfile: userProfileUpdates } },
-          { new: true, runValidators: true }
-        );
+    const user = await User.findOneAndUpdate(
+      { uid: uid },
+      { $set: { userProfile: userProfileUpdates } },
+      { new: true, runValidators: true }
+    );
 
     if (!user) {
       return res.status(404).send("User not found");
     }
 
-        res.send(user);
-    } catch (error) {
-        res.status(400).send(error);
-    }
+    res.send(user);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 };
 
 // 删除用户
