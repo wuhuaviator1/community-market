@@ -46,11 +46,11 @@ app.post('/listings', listingController.createListing);
 // ... 其他列表相关路由
 
 app.get('/cart', cartController.getCart);
-app.post('/cart', cartController.addToCart);
+app.post('/cart', cartController.createCart);
 // ... 其他购物车相关路由
 
 // 定义 HTTPS 函数
 exports.api = functions.https.onRequest(app);
 
-// 注意：这里假设每个控制器都有相应的方法如 getUsers, createUser 等
+// 注意：这里假设每个控制器都有相应的方法如 getUser, createUser 等
 // 您需要根据您的实际控制器代码来调整这些方法名称
