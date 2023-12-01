@@ -6,7 +6,7 @@
     </router-link>
 
     <div class="product-details">
-      <p>{{ item.description }}</p>
+      <p class="info">{{ item.description }}</p>
       <div class="product-price">{{ item.price }}</div>
       <div class="product-location">{{ item.location }}</div>
       <div class="product-rating">
@@ -35,11 +35,75 @@ import { defineProps } from "vue";
 const props = defineProps({
   item: Object,
 });
+
+import { ref, computed } from "vue";
+import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
+import Item from "@/components/Item.vue";
+
+const showChat = ref(false);
+const sellerId = ref(""); // 卖家的用户ID
+
+const items = ref([]); // 定义 items
+
+const searchQuery = ref(""); // 搜索框的输入
+
+const filteredItems = computed(() => {
+  if (!searchQuery.value) {
+    return items.value; // 如果没有输入，返回所有商品
+  }
+
+  return items.value.filter((item) => {
+    const lowerCaseQuery = searchQuery.value.toLowerCase();
+    return (
+      item.title.toLowerCase().includes(lowerCaseQuery) ||
+      item.price.toLowerCase().includes(lowerCaseQuery)
+    );
+  });
+});
+
+const searchItems = async () => {
+  if (searchQuery.value.trim()) {
+    try {
+      const response = await fetch(
+        `http://localhost:3001/api/getGoodBy/name/${searchQuery.value}`
+      );
+
+      if (response.ok) {
+        items.value = await response.json();
+        console.log(items.value);
+      } else {
+        // 处理错误
+        console.error("无法获取商品");
+      }
+    } catch (error) {
+      console.error("请求错误", error);
+    }
+  }
+};
+
+// 直接返回一个对象，而不是使用 export default
+// return {
+//   items,
+//   searchQuery,
+//   searchItems,
+//   filteredItems,
+// };
 </script>
 
 <style scoped>
+/* .product-card {
+  width: 20rem;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+} */
+
 .product-card {
   width: 20rem;
+  min-height: 50rem; /* 设置最小高度 */
+  max-height: 50rem; /* 设置最大高度 */
   margin: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -53,6 +117,8 @@ const props = defineProps({
 
 .product-details {
   padding: 8px;
+  /* min-height: 70px; */
+  /* max-height: 50px; */
 }
 
 .product-price {
@@ -70,5 +136,9 @@ const props = defineProps({
 
 .star {
   color: gold;
+}
+
+.info {
+  color: white;
 }
 </style>

@@ -7,20 +7,18 @@
                 <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
             </div> -->
       <div class="row">
-        
-          <!--left col-->
+        <!--left col-->
 
-          <div class="top text-center">
-            <img
-              :src="imageUrl"
-              class="avatar img-circle img-thumbnail"
-              alt=""
-            />
-            <h6>Upload a photo!</h6>
-            <input type="file" class="text-center center-block file-upload fontColor" @change="onFileSelected" />
-          </div>
+        <div class="top text-center">
+          <img :src="imageUrl" class="avatar img-circle img-thumbnail" alt="" />
+          <h6>Upload a photo!</h6>
+          <input
+            type="file"
+            class="text-center center-block file-upload fontColor"
+            @change="onFileSelected"
+          />
+        </div>
 
-        
         <!--/col-3-->
         <div class="col-sm-9">
           <div class="tab-content">
@@ -195,6 +193,8 @@ export default {
       }
     },
 
+    // async login()
+
     onFileSelected(event) {
       const file = event.target.files[0];
       this.imageUrl = URL.createObjectURL(file);
@@ -204,18 +204,17 @@ export default {
 </script>
 
 <style>
-
-.top{
+.top {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-h6{
+h6 {
   padding-top: 1rem;
 }
 
-input{
+input {
   padding-top: 1rem;
   padding-left: 5rem;
 }
@@ -227,13 +226,13 @@ input{
   border-radius: 50%; /* 如果您想要圆形图片 */
 }
 
-.row{
+.row {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.fontColor{
+.fontColor {
   color: white;
 }
 
@@ -260,6 +259,4 @@ input{
 #body {
   background-color: black;
 }
-
-
 </style>
