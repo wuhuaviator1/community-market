@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    uid: {
-        type: String,
-        required: true,
-        unique: true,
-    },
     uid:{
         type: String,
         required: true,
@@ -22,18 +17,15 @@ const userSchema = new mongoose.Schema({
         ref: 'Listing'
     }],
     userProfile: [{
-        name: String,
+        firstName: String,
+        lastName: String,
         email: String,
         phone: String,
         address: String,
-        city: String,
-        state: String,
-        zip: String,
+        img: String,
     }]
 });
 
 const User = mongoose.model('UserModel', userSchema, "users");
-// const UserUid = mongoose.model('UserUid', userUidSchema, "userUids");
-
 
 module.exports = User;
