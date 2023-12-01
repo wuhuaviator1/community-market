@@ -15,5 +15,6 @@ router.post("/login/:uid", userController.login);
 // 商品路由
 router.get('/getALlGoods',goodsController.getAllGoods)
 router.get('/getGoodBby/category/:category', goodsController.getGoodsByCategory);
-
+router.get('/getGoodBy/name/:name', goodsController.getGoodsByName);
+router.get('/getAllCategories', goodsController.getAllCategories);
 module.exports = router;
