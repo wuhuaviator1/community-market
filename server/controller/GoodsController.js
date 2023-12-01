@@ -1,15 +1,5 @@
 const Goods = require('../model/GoodsModel');
 
-exports.createGoods = async (req, res) => {
-    try {
-        const newGoods = new Goods(req.body);
-        await newGoods.save();
-        res.status(201).send(newGoods);
-    } catch (error) {
-        res.status(400).send(error);
-    }
-};
-
 exports.getAllGoods = async (req, res) => {
     try {
         const goodsList = await Goods.find({});
@@ -19,37 +9,28 @@ exports.getAllGoods = async (req, res) => {
     }
 };
 
-exports.getGoods = async (req, res) => {
+exports.getGoodsByCategory = async (req, res) => {
     try {
-        const goods = await Goods.findById(req.params.id);
-        if (!goods) {
-            return res.status(404).send();
-        }
-        res.send(goods);
+        const category = req.params.category;
+        const goodsInCategory = await Goods.find({ category: category });
+        res.send(goodsInCategory);
     } catch (error) {
         res.status(500).send(error);
     }
 };
-
-exports.updateGoods = async (req, res) => {
+exports.getGoodsByName = async (req, res) => {
     try {
-        const goods = await Goods.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
-        if (!goods) {
-            return res.status(404).send();
-        }
-        res.send(goods);
+        const name = req.params.name;
+        const goodsByName = await Goods.find({ name: new RegExp(name, 'i') }); // 使用正则表达式进行不区分大小写的匹配
+        res.send(goodsByName);
     } catch (error) {
-        res.status(400).send(error);
+        res.status(500).send(error);
     }
 };
-
-exports.deleteGoods = async (req, res) => {
+exports.getAllCategories = async (req, res) => {
     try {
-        const goods = await Goods.findByIdAndDelete(req.params.id);
-        if (!goods) {
-            return res.status(404).send();
-        }
-        res.send({ message: 'Goods successfully deleted' });
+        const categories = await Goods.distinct("category");
+        res.send(categories);
     } catch (error) {
         res.status(500).send(error);
     }
