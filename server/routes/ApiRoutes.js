@@ -4,7 +4,7 @@ const router = express.Router();
 const userController = require("../controller/UserController");
 const goodsController = require("../controller/GoodsController");
 const listingController = require("../controller/ListingController");
-const cartController = require("../controller/CartController");
+const cartController = require("../controller/CsartController");
 // 用户路由
 // /api/users
 router.get("/users/:uid", userController.findUserByUId);
@@ -21,4 +21,3 @@ router.get(
 router.get("/getGoodBy/name/:name", goodsController.getGoodsByName);
 router.get("/getAllCategories", goodsController.getAllCategories);
 module.exports = router;
-
