@@ -4,7 +4,7 @@
       <header class="home-header">
         <h1>Please Upload information of your selling items:</h1>
       </header>
-      <section>
+      <section id="morespace">
         <div class="file-upload">
             <button class="file-upload-btn" type="button" @click="triggerFileUpload">Add Image</button>
 
@@ -253,6 +253,10 @@ export default {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+#morespace{
+  height: 52rem;
 }
 
 </style>

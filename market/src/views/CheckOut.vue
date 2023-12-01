@@ -1,6 +1,6 @@
 <template>
     <Navbar />
-    <div id="black">
+    <div id="black" class="morespace">
     <div class="container">
   <main>
     <div class="py-5 text-center white">

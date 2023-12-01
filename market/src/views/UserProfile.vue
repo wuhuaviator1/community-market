@@ -259,6 +259,7 @@ input{
 
 #body {
   background-color: black;
+  height: 65rem;
 }
 
 
