@@ -84,6 +84,7 @@ const filteredItems = computed(() => {
 
 <style scoped>
 .marketplace {
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   background-color: #000;

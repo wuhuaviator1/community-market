@@ -9,7 +9,10 @@ import 'firebase/auth';
 import 'bootstrap';
 import 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+
+import store from './store'; // 引入 store
 
 
 // 创建Vue实例
@@ -28,7 +31,7 @@ app.config.globalProperties.$user = ref(null);
 
 // 使用路由器
 app.use(router);
-
+app.use(store);
 // 挂载到#app
 app.mount('#app');
 

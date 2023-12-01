@@ -7,19 +7,20 @@
                 <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
             </div> -->
       <div class="row">
-        <div class="col-sm-3">
+        
           <!--left col-->
 
-          <div class="text-center">
+          <div class="top text-center">
             <img
-              src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+              :src="imageUrl"
               class="avatar img-circle img-thumbnail"
-              alt="avatar"
+              alt=""
             />
-            <h6>Upload a different photo...</h6>
-            <input type="file" class="text-center center-block file-upload" />
+            <h6>Upload a photo!</h6>
+            <input type="file" class="text-center center-block file-upload fontColor" @change="onFileSelected" />
           </div>
-        </div>
+
+        
         <!--/col-3-->
         <div class="col-sm-9">
           <div class="tab-content">
@@ -147,6 +148,7 @@ export default {
     return {
       // 添加一个新的数据属性，用于存储表单数据
       userMessage: "",
+      imageUrl: null, // 新增的图片 URL
       // userId: "",
     };
   },
@@ -192,11 +194,49 @@ export default {
         this.userMessage = "User info updated successfully";
       }
     },
+
+    onFileSelected(event) {
+      const file = event.target.files[0];
+      this.imageUrl = URL.createObjectURL(file);
+    },
   },
 };
 </script>
 
 <style>
+
+.top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h6{
+  padding-top: 1rem;
+}
+
+input{
+  padding-top: 1rem;
+  padding-left: 5rem;
+}
+
+.top img.avatar {
+  width: 10rem; /* 设置图片的固定宽度 */
+  height: 10rem; /* 设置图片的固定高度 */
+  object-fit: cover; /* 图片保持比例填充 */
+  border-radius: 50%; /* 如果您想要圆形图片 */
+}
+
+.row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fontColor{
+  color: white;
+}
+
 #color {
   background-color: black;
 }
@@ -220,4 +260,6 @@ export default {
 #body {
   background-color: black;
 }
+
+
 </style>

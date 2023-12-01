@@ -1,64 +1,35 @@
 <template>
     <Navbar />
+    <div class="wrap">
       <div class="container">
-        <div class="card">
           <div class="container-fliud">
             <div class="wrapper row">
               <div class="preview col-md-6">
                 
-                <div class="preview-pic tab-content">
-                  <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
-                  <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
-                  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
-                  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
-                  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+                <div class="preview-pic tab-content movedown">
+                  <div class="tab-pane active bag" id="pic-1">
+                    <img :src="imageUrl" alt="Product Image" />
+                  </div>
+                  <!-- ...其他图片... -->
                 </div>
-                <ul class="preview-thumbnail nav nav-tabs">
-                  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                </ul>
                 
               </div>
+
               <div class="details col-md-6">
-                <h3 class="product-title">men's shoes fashion</h3>
-                <div class="rating">
-                  <div class="stars">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                  </div>
-                  <span class="review-no">41 reviews</span>
-                </div>
-                <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-                <h4 class="price">current price: <span>$180</span></h4>
-                <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-                <h5 class="sizes">sizes:
-                  <span class="size" data-toggle="tooltip" title="small">s</span>
-                  <span class="size" data-toggle="tooltip" title="medium">m</span>
-                  <span class="size" data-toggle="tooltip" title="large">l</span>
-                  <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
-                </h5>
-                <h5 class="colors">colors:
-                  <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
-                  <span class="color green"></span>
-                  <span class="color blue"></span>
-                </h5>
-                <div class="action">
-                  <button class="add-to-cart btn btn-default" type="button">add to cart</button>
-                  <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-                </div>
+                <h3 class="product-title">{{ product?.title }}</h3>
+                <p class="product-description">{{ product?.description }}</p>
+                <section id="priceCheckOut">
+                  <h4 class="price">current price ($): <span>{{ product?.price - 50 }}</span></h4>
+                  <button class="add-to-cart btn btn-default" @click="addToCart">add to cart</button>
+                </section>
+                <!-- ...其他详情... -->
               </div>
             </div>
           </div>
-        </div>
+        
       </div>
 
-
+    </div>
     <Footer />
   </template>
   
@@ -74,11 +45,42 @@
     },
     data() {
       return {
-        // Your component data
+        product: null, // 用于存储从 API 获取的商品信息
+        imageUrl: null, // 新增的图片 URL
+        userMessage: "",
       };
     },
-    
-  };
+    methods: {
+      fetchProductData() {
+        fetch('https://fakestoreapi.com/products/1')
+          .then((response) => response.json())
+          .then((data) => {
+            this.product = data;
+            this.imageUrl = data.image; // 更新图片 URL
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      },
+    },
+    created() {
+      this.fetchProductData();
+    },
+    addToCart() {
+      console.log("Adding to cart:", this.product, this.imageUrl);
+      if (this.product && this.imageUrl) {
+        this.$store.dispatch('addToCart', {
+          id: this.product.id,
+          title: this.product.title,
+          image: this.imageUrl,
+          price: this.product.price - 50,
+          quantity: 1
+        });
+      } else {
+        console.error("Product data is not loaded yet.");
+      }
+    }
+};
 </script>
   
 <style scoped>
@@ -88,7 +90,52 @@
   }
 
 img {
-  max-width: 100%; }
+  max-width: 100%; 
+}
+
+.container{
+  
+  background-color: black;
+}
+
+h3, h4, h5, p{
+  color: white;
+}
+
+#priceCheckOut{
+  display: flex;
+  align-items: center;
+  gap:2rem;
+
+}
+
+#priceCheckOut button{
+  width: 7rem;
+  height: 5rem;
+}
+
+.tab-content img {
+  max-width: 19rem; /* 设置最大宽度 */
+  height: auto; /* 保持图片比例 */
+  /* ...其他样式... */
+}
+
+.product-description{
+  color:antiquewhite;
+}
+
+.wrap{
+  background-color: black;
+}
+
+.movedown{
+  padding-top: 2rem;
+}
+
+.review-no{
+  color:white;
+}
+
 
 .preview {
   display: -webkit-box;
@@ -175,7 +222,9 @@ img {
   margin-bottom: 15px; }
 
 .product-title {
-  margin-top: 0; }
+  margin-top: 0; 
+  color:#d88819;
+}
 
 .size {
   margin-right: 10px; }
