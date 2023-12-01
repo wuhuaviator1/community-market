@@ -24,172 +24,12 @@
         </svg>
       </button>
     </div>
-    <!-- item 1 -->
+    
+    <!-- Items -->
     <div class="goods">
-      <div v-for="item in filteredItems" :key="item.id" class="product-card">
-        <router-link :to="'/productDetails/' + item.id">
-          <img :src="item.image" :alt="item.title" class="product-image" />
-          <h3>{{ item.title }}</h3>
-        </router-link>
-
-        <div class="product-details">
-          <!-- <h2>{{ item.title }}</h2> -->
-          <p>{{ item.description }}</p>
-          <div class="product-price">{{ item.price }}</div>
-          <div class="product-location">{{ item.location }}</div>
-          <div class="product-rating">
-            <span v-for="star in 5" :key="star" class="star">
-              <svg
-                v-if="star <= item.rating"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for filled star -->
-              </svg>
-              <svg
-                v-else
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for empty star -->
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- item 2 -->
-      <div v-for="item in items" :key="item.id" class="product-card">
-        <router-link :to="'/productDetails/' + item.id">
-          <img :src="item.image" :alt="item.title" class="product-image" />
-          <h3>{{ item.title }}</h3>
-        </router-link>
-        <!-- <button @click="startChat(item.sellerId)">Chat with Seller</button> -->
-        <div class="product-details">
-          <!-- <h2>{{ item.title }}</h2> -->
-          <p>{{ item.description }}</p>
-          <div class="product-price">{{ item.price }}</div>
-          <div class="product-location">{{ item.location }}</div>
-          <div class="product-rating">
-            <span v-for="star in 5" :key="star" class="star">
-              <svg
-                v-if="star <= item.rating"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for filled star -->
-              </svg>
-              <svg
-                v-else
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for empty star -->
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- item 3 -->
-      <div v-for="item in items" :key="item.id" class="product-card">
-        <router-link :to="'/productDetails/' + item.id">
-          <img :src="item.image" :alt="item.title" class="product-image" />
-          <h3>{{ item.title }}</h3>
-        </router-link>
-        <!-- <button @click="startChat(item.sellerId)">Chat with Seller</button> -->
-        <div class="product-details">
-          <!-- <h2>{{ item.title }}</h2> -->
-          <p>{{ item.description }}</p>
-          <div class="product-price">{{ item.price }}</div>
-          <div class="product-location">{{ item.location }}</div>
-          <div class="product-rating">
-            <span v-for="star in 5" :key="star" class="star">
-              <svg
-                v-if="star <= item.rating"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for filled star -->
-              </svg>
-              <svg
-                v-else
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for empty star -->
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- item4 -->
-      <div v-for="item in items" :key="item.id" class="product-card">
-        <router-link :to="'/productDetails/' + item.id">
-          <img :src="item.image" :alt="item.title" class="product-image" />
-          <h3>{{ item.title }}</h3>
-        </router-link>
-        <!-- <button @click="startChat(item.sellerId)">Chat with Seller</button> -->
-        <div class="product-details">
-          <!-- <h2>{{ item.title }}</h2> -->
-          <p>{{ item.description }}</p>
-          <div class="product-price">{{ item.price }}</div>
-          <div class="product-location">{{ item.location }}</div>
-          <div class="product-rating">
-            <span v-for="star in 5" :key="star" class="star">
-              <svg
-                v-if="star <= item.rating"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for filled star -->
-              </svg>
-              <svg
-                v-else
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for empty star -->
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- item 5 -->
-      <div v-for="item in items" :key="item.id" class="product-card">
-        <router-link :to="'/productDetails/' + item.id">
-          <img :src="item.image" :alt="item.title" class="product-image" />
-          <h3>{{ item.title }}</h3>
-        </router-link>
-        <!-- <button @click="startChat(item.sellerId)">Chat with Seller</button> -->
-        <div class="product-details">
-          <!-- <h2>{{ item.title }}</h2> -->
-          <p>{{ item.description }}</p>
-          <div class="product-price">{{ item.price }}</div>
-          <div class="product-location">{{ item.location }}</div>
-          <div class="product-rating">
-            <span v-for="star in 5" :key="star" class="star">
-              <svg
-                v-if="star <= item.rating"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for filled star -->
-              </svg>
-              <svg
-                v-else
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <!-- SVG for empty star -->
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
+      <Item v-for="item in filteredItems" :key="item.id" :item="item" />
     </div>
+
   </div>
   <Footer />
 </template>
@@ -198,6 +38,7 @@
 import { ref, computed } from "vue";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+import Item from "@/components/Item.vue";
 
 const showChat = ref(false);
 const sellerId = ref(""); // 卖家的用户ID

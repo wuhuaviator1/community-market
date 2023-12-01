@@ -1,10 +1,11 @@
 const express = require("express");
+// eslint-disable-next-line new-cap
 const router = express.Router();
 
 const userController = require("../controller/UserController");
 const goodsController = require("../controller/GoodsController");
 const listingController = require("../controller/ListingController");
-const cartController = require("../controller/CsartController");
+const cartController = require("../controller/CartController");
 // 用户路由
 // /api/users
 router.post("/users", userController.createUser);
@@ -14,7 +15,7 @@ router.put("/users/profile/:uid", userController.updateUserProfile);
 router.delete("/users/:id", userController.deleteUser);
 
 router.post("/login/:uid", userController.login);
-// 商品路由s
+// 商品路由
 router.post("/goods", goodsController.createGoods);
 router.get("/goods", goodsController.getAllGoods);
 router.get("/goods/:id", goodsController.getGoods);

@@ -2,10 +2,10 @@ const User = require("../model/UserModel");
 
 exports.login = async (req, res) => {
   try {
-    const firebaseUid = req.body.uid;
-    let user = await User.findOne({ uid: req.params.uid });
+    // const firebaseUid = req.body.uid;
+    let user = await User.findOne({uid: req.params.uid});
     if (!user) {
-      user = new User({ uid: req.params.uid });
+      user = new User({uid: req.params.uid});
       await user.save();
       res.status(201).send(user); // 新用户创建
     } else {
@@ -27,7 +27,7 @@ exports.createUser = async (req, res) => {
 };
 exports.findUserByUId = async (req, res) => {
   try {
-    const user = await User.findOne({ uid: req.params.uid });
+    const user = await User.findOne({uid: req.params.uid});
     if (!user) {
       return res.status(404).send();
     }
@@ -38,21 +38,21 @@ exports.findUserByUId = async (req, res) => {
 };
 // 获取所有用户
 exports.getAllUsers = async (req, res) => {
-    try {
-        const users = await User.find();
-        res.send(users);
-    } catch (error) {
-        console.error("Error getting users:", error);
-        res.status(500).send("Internal Server Error");
-    }
+  try {
+    const users = await User.find();
+    res.send(users);
+  } catch (error) {
+    console.error("Error getting users:", error);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 // 获取单个用户
 exports.getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-      .populate("cart.items")
-      .populate("listings");
+        .populate("cart.items")
+        .populate("listings");
     if (!user) {
       return res.status(404).send();
     }
@@ -64,24 +64,24 @@ exports.getUser = async (req, res) => {
 
 // 更新用户信息
 exports.updateUserProfile = async (req, res) => {
-    try {
-        const uid = req.params.uid;
-        const userProfileUpdates = req.body.userProfile;
+  try {
+    const uid = req.params.uid;
+    const userProfileUpdates = req.body.userProfile;
 
-        const user = await User.findOneAndUpdate(
-          { uid: uid },
-          { $set: { userProfile: userProfileUpdates } },
-          { new: true, runValidators: true }
-        );
+    const user = await User.findOneAndUpdate(
+        {uid: uid},
+        {$set: {userProfile: userProfileUpdates}},
+        {new: true, runValidators: true},
+    );
 
     if (!user) {
       return res.status(404).send("User not found");
     }
 
-        res.send(user);
-    } catch (error) {
-        res.status(400).send(error);
-    }
+    res.send(user);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 };
 
 // 删除用户
