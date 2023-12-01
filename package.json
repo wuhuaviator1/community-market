@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "firebase": "^10.6.0",
+    "stream-chat": "^8.14.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-plugin-vue": "^9.19.2",
+    "firebase-tools": "^12.9.1"
+  }
+}
