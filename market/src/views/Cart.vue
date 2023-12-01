@@ -33,6 +33,9 @@
                                 <span class="glyphicon glyphicon-remove"></span> Remove
                               </button>
                           </td>
+                          <td></td>
+                          
+                          
                         </tr>
                         
                         <tr>
@@ -167,5 +170,6 @@ li {
 
 .checkout-button{
   color:white;
+  text-decoration: none;
 }
 </style>
