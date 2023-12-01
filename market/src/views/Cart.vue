@@ -135,7 +135,7 @@ export default {
 
 #wrap{
   background-color: black;
-  height: 100vh;
+  height: 65rem;
 }
 
 .cart-container h1 {
