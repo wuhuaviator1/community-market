@@ -26,6 +26,7 @@
             <div class="tab-pane active" id="home">
               <hr />
               <form
+                @submit.prevent="updateUser"
                 class="form"
                 action="##"
                 method="post"
@@ -35,6 +36,7 @@
                   <div class="col-xs-6">
                     <label for="first_name"><h4>First name</h4></label>
                     <input
+                      ref="firstName"
                       type="text"
                       class="form-control"
                       name="first_name"
@@ -48,6 +50,7 @@
                   <div class="col-xs-6">
                     <label for="last_name"><h4>Last name</h4></label>
                     <input
+                      ref="lastName"
                       type="text"
                       class="form-control"
                       name="last_name"
@@ -62,6 +65,7 @@
                   <div class="col-xs-6">
                     <label for="phone"><h4>Phone</h4></label>
                     <input
+                      ref="phone"
                       type="text"
                       class="form-control"
                       name="phone"
@@ -76,6 +80,7 @@
                   <div class="col-xs-6">
                     <label for="email"><h4>Email</h4></label>
                     <input
+                      ref="email"
                       type="email"
                       class="form-control"
                       name="email"
@@ -89,6 +94,7 @@
                   <div class="col-xs-6">
                     <label for="location"><h4>Address</h4></label>
                     <input
+                      ref="location"
                       type="text"
                       class="form-control"
                       id="location"
@@ -103,7 +109,7 @@
                     <button
                       @click="updateUser"
                       class="btn btn-lg btn-success"
-                      type="submit"
+                      type="button"
                     >
                       <i class="glyphicon glyphicon-ok-sign"></i> Save
                     </button>
@@ -139,13 +145,17 @@ export default {
   },
   data() {
     return {
-      // 添加一个新的数据属性
+      // 添加一个新的数据属性，用于存储表单数据
       userMessage: "",
+      // userId: "",
     };
   },
   methods: {
     async updateUser() {
-      const userId = this.$refs.userId.value;
+      // const userId = this.$refs.userId.value;
+      // const userId = localStorage.getItem("userId");
+      const userId = "testId2";
+      console.log(userId);
       const newUserInfo = {
         // collect new user info here
         firstName: this.$refs.firstName.value,
@@ -155,6 +165,8 @@ export default {
         location: this.$refs.location.value,
       };
 
+      console.log(newUserInfo);
+
       const response = await fetch(
         `http://localhost:3001/api/users/profile/${userId}`,
         {
@@ -163,6 +175,14 @@ export default {
           body: JSON.stringify(newUserInfo),
         }
       );
+
+      //弹出response 的json形式
+      // console.log(await response.json());
+
+      const responseData = await response.json();
+      // Select only the data you care about
+      const { firstName, lastName, phone, email, location } = responseData;
+      console.log({ firstName, lastName, phone, email, location });
 
       if (!response.ok) {
         // handle error
